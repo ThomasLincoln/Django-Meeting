@@ -1,14 +1,10 @@
-![Logo of the project](https://raw.githubusercontent.com/jehna/readme-best-practices/master/sample-logo.png)
+# Django Meeting
 
-# Name of the project
-> Additional information or tagline
-
-A brief description of your project, what it is used for and how does life get
-awesome when someone starts to use it.
+This project is an agenda for meetings built using Django, where multiple users can schedule events and invite other members of the site. It allows events to be displayed on each user's homepage, providing a convenient overview of their schedule for the day. The application was developed using Django, SQLite3, and Bootstrap. When someone starts using this agenda, life gets awesome by effortlessly organizing meetings, ensuring nobody misses important events, and fostering seamless collaboration among users.
 
 ## Installing / Getting started
 
-To get started with our Django-based "Hello World" project, users will need to have Python and Django installed on their system. After installation, the following steps should be followed:
+To get started with our Django-based Schedule project, users will need to have Python and Django installed on their system. After installation, the following steps should be followed:
 
 ### Install Python and Django
 Ensure Python is installed on your system. If not, download and install it from the official Python website. After installing Python, install Django using pip with the following command:

@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Detalhes do Compromisso: {{ compromisso.titulo }}
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>{{ compromisso.titulo }}</h3>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>Descrição:</strong> {{ compromisso.descricao }}</p>
+                        <p><strong>Data:</strong> {{ compromisso.data }}</p>
+                        <p><strong>Hora:</strong> {{ compromisso.hora }}</p>
+                        <p><strong>Local:</strong> {{ compromisso.local }}</p>
+                        <p><strong>Criador:</strong> {{ compromisso.criador.username }}</p>
+                        
+                        <p><strong>Participantes:</strong></p>
+                        <ul>
+                            {% for participante in compromisso.participantes.all %}
+                                <li>{{ participante.username }}</li>
+                            {% endfor %}
+                        </ul>
+                        
+                        <p><strong>Estado:</strong> {{ compromisso.estado }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

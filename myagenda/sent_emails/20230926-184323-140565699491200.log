@@ -1,0 +1,25 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Subject: Password reset on 127.0.0.1:8000
+From: webmaster@localhost
+To: thmas5952@gmail.com
+Date: Tue, 26 Sep 2023 18:43:23 -0000
+Message-ID: <169575380369.5217.16197190372293461469@thomas>
+
+
+You're receiving this email because you requested a password reset for your user account at 127.0.0.1:8000.
+
+Please go to the following page and choose a new password:
+
+http://127.0.0.1:8000/accounts/reset/MQ/bv5dca-bbdf2c23b5c311c8bdc8d5c296016be8/
+
+Your username, in case you’ve forgotten: thomas
+
+Thanks for using our site!
+
+The 127.0.0.1:8000 team
+
+
+
+-------------------------------------------------------------------------------

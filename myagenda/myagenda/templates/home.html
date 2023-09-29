@@ -1,0 +1,76 @@
+{% extends 'base.html' %} 
+{% block title %}Home{% endblock %} 
+{% block content %}
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      {% if user.is_authenticated %}
+      <h2>Compromissos</h2>
+      <form class="mb-3" method="get" action="{% url 'dashboard' %}">
+        <label for="data_escolhida">Escolha a Data:</label>
+        <input type="date" id="data_escolhida" name="data_escolhida" />
+        <input type="submit" value="Filtrar" />
+      </form>
+
+      <div class="row">
+        {% for compromisso in compromissos %}
+        <div class="col-md-4">
+          {% if compromisso.data < data_atual %}
+          <div class="card mb-3 bg-danger text-white">
+            {% else %}
+            <div class="card mb-3 bg-dark text-white">
+              {% endif %}
+              <div class="card-body">
+                <h5 class="card-title">{{ compromisso.titulo }}</h5>
+                <p class="card-text">
+                  <strong>Data:</strong> {{ compromisso.data }}
+                </p>
+                <p class="card-text">
+                  <strong>Criador:</strong> {{ compromisso.criador.username }}
+                </p>
+                <p class="card-text">
+                  <strong>Participantes:</strong>
+                  {% for participante in compromisso.participantes.all %} 
+                  {{participante.username }} 
+                  {% if not forloop.last %} 
+                  {% endif %} 
+                  {% endfor %}
+                </p>
+                <p class="card-text">
+                  <strong>Status:</strong> {{ compromisso.estado }}
+                </p>
+                <a href="#" class="btn btn-primary">
+                  <i class="fa fa-video-camera"></i>
+                  <!-- Ícone do Google Meet (você pode ajustar a classe do ícone) -->
+                  Agendar Meet
+                </a>
+                <a
+                  href="{% url 'compromisso:detail' compromisso.id  %}"
+                  class="btn btn-secondary"
+                >
+                  Detalhes
+                </a>
+                {% if compromisso.criador.id == user.id %}
+                <!-- Mostra o botão de cancelamento apenas para o criador do compromisso -->
+                <a href="{% url 'compromisso:cancelar' compromisso.id %}" class="btn btn-danger mt-2">
+                    Cancelar Compromisso
+                </a>
+              
+            {% else %}
+            {% endif %}
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% else %}
+        <h2>Você não está logado</h2>
+        <a href="{% url 'login' %}" class="btn btn-success">Entrar</a>
+        <a href="/accounts/signup" class="btn btn-success">Criar Conta</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+</div>
+{%endblock%}
